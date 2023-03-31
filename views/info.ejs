@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/content.css' />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  </head>
+  <body>
+    <div class="ck-content"><%-content%></div>
+    <img id = "close-btn" class="close-btn" src="/images/back_normal.png">
+  </body>
+
+  <script>
+    const btn = document.getElementById('close-btn');
+
+    btn.addEventListener('click', ()=>{
+      if (window.parent){
+        window.parent.postMessage({type : 'close-info'}, '*');
+      }
+    })
+  </script>
+</html>
